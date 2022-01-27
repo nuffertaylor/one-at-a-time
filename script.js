@@ -17,7 +17,9 @@ function httpGet(theUrl)
 
 function initializeVars()
 {
-  let curCookie = parseCookie(document.cookie)["cookie"];
+  let curCookie = "";
+  if(document.cookie)
+    curCookie = parseCookie(document.cookie)["cookie"];
   var res = JSON.parse(httpGet("/inUse"));
   if(Object.keys(res).length === 0)
   {
